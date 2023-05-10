@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  service1:
+    image: alpine:latest
+    command: sh -c ' ping 8.8.8.8 -c 1'
+    dns: 0.0.0.0
+    networks:
+      - internet
