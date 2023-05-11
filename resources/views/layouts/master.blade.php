@@ -61,10 +61,7 @@
 							<li @class(['active'=>request()->routeIs('tasks.ping.*')]) ><a
 										href="{{ route('tasks.ping.index') }}" @class(['active'=>request()->routeIs('tasks.ping.*')])>Ping</a>
 							</li>
-							<li><a href="basic-ui-kits-badges.html">Nikto</a></li>
 							<li><a href="basic-ui-kits-buttons.html">Theharvester</a></li>
-							<li><a href="basic-ui-kits-cards.html">eklenebilir</a></li>
-							<li><a href="basic-ui-kits-typography.html">eklenebilir</a></li>
 						</ul>
 					</li>
 					<li>
@@ -240,16 +237,16 @@
 <script src="{{asset('assets/js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('assets/js/vertical-menu.js')}}"></script>
 <!-- Switchery js -->
-<script src="{{asset('assets/plugins/switchery/switchery.min.js')}}"></script>
+{{--<script src="{{asset('assets/plugins/switchery/switchery.min.js')}}"></script>--}}
 <!-- Apex js -->
-<script src="{{asset('assets/plugins/apexcharts/apexcharts.min.js')}}"></script>
-<script src="{{asset('assets/plugins/apexcharts/irregular-data-series.js')}}"></script>
+{{--<script src="{{asset('assets/plugins/apexcharts/apexcharts.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/plugins/apexcharts/irregular-data-series.js')}}"></script>--}}
 <!-- Slick js -->
 <script src="{{asset('assets/plugins/slick/slick.min.js')}}"></script>
 
 @yield('script')
 <!-- Custom Dashboard js -->
-<script src="{{asset('assets/js/custom/custom-dashboard.js')}}"></script>
+{{--<script src="{{asset('assets/js/custom/custom-dashboard.js')}}"></script>--}}
 <!-- Core js -->
 <script src="{{asset('assets/js/core.js')}}"></script>
 <!-- End js -->

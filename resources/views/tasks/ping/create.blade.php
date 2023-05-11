@@ -60,8 +60,8 @@
 								@enderror
 							</div>
 							<div class="form-group">
-								<label for="tagsinput-default">IP</label>
-								<input type="text" id="tagsinput-default" name="ip" class="form-control @error('ip') is-invalid @enderror" value="{{old('ip')}}" data-role="tagsinput" />
+								<label for="ip">IP</label>
+								<input type="text" id="ip" name="ip" class="form-control @error('ip') is-invalid @enderror" value="{{old('ip')}}" maxlength="15" />
 								@error('ip')
 								<div class="invalid-feedback">{{ $message }}</div>
 								@enderror

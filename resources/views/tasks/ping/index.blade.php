@@ -56,8 +56,9 @@
 									<th>Başlık</th>
 									<th>Konteyner</th>
 									<th>Oluşturan</th>
+									<th>Durum</th>
 									<th>Tarih</th>
-									<th class="text-center">İşlem</th>
+									<th class="text-center">Detay</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -67,6 +68,7 @@
 										<td>{{ $ping->title }}</td>
 										<td>{{ $ping->container }}</td>
 										<td>{{ $ping->user->name }}</td>
+										<td>{!! \App\Enums\TaskStatusEnum::from($ping->status)->taskStatusBadge() !!}</td>
 										<td>{{ $ping->created_at->format('d.m.Y') }}</td>
 										<td class="text-center">
 											<a href="{{ route('tasks.ping.show', $ping) }}"

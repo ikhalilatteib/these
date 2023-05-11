@@ -36,6 +36,10 @@ Route::group(['middleware' => 'auth'], function () {
             ->except(['destroy', 'edit', 'update']);
     });
     
+    Route::controller(PingController::class)->group(function (){
+      Route::get('/container/{ping}/data','getContainerData')->name('container.data');
+    });
+    
     Route::controller(UserController::class)->group(function () {
         Route::get('/my-account', 'account')->name('account');
         Route::put('/update/info', 'updateAccount')->name('update.info');

@@ -30,4 +30,17 @@ class PingController extends Controller
     {
         return view('tasks.ping.show', compact('ping'));
     }
+    
+    public function getContainerData(Ping $ping)
+    {
+        $data = [];
+        $i = 1;
+        $containers = $ping->containers;
+        $containers->each(function ($container) use (&$data,&$i){
+            $data[] = ['name'=>"C$i",'data'=>[$container->min,$container->avg,$container->max,$container->packet_loss]];
+            $i++;
+        });
+        
+        return json_encode($data);
+    }
 }

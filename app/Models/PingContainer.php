@@ -18,7 +18,8 @@ class PingContainer extends Model
         'packet_loss',
         'min',
         'avg',
-        'max'
+        'max',
+        'log'
     ];
     
     public function ping(): BelongsTo

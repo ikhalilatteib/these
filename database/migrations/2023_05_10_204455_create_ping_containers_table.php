@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('min')->nullable();
             $table->string('avg')->nullable();
             $table->string('max')->nullable();
+            $table->longText('log')->nullable();
             $table->timestamps();
         });
     }
