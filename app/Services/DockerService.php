@@ -33,6 +33,7 @@ class DockerService
         if (!filter_var($ping->ip, FILTER_VALIDATE_IP)) {
             throw new \InvalidArgumentException('Invalid IP address: ' . $ping->ip);
         }
+        $ping->containers()->delete();
         
         try {
             $this->logger->info('start creating container');

@@ -53,11 +53,11 @@
 						</a>
 					</li>
 					<li class="vertical-header p-0"></li>
-					<li>
+					<li  @class(['active'=>request()->routeIs('tasks.*')])>
 						<a href="javaScript:void(0);">
 							<i class="ri-settings-2-line"></i><span>Görevler</span><i class="ri-arrow-right-s-line"></i>
 						</a>
-						<ul class="vertical-submenu" @class(['in'=>request()->routeIs('tasks.*')])>
+						<ul @class(["vertical-submenu",'in'=>request()->routeIs('tasks.*')])>
 							<li @class(['active'=>request()->routeIs('tasks.ping.*')]) ><a
 										href="{{ route('tasks.ping.index') }}" @class(['active'=>request()->routeIs('tasks.ping.*')])>Ping</a>
 							</li>
