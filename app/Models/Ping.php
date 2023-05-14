@@ -36,4 +36,9 @@ class Ping extends Model
     {
         return $this->hasMany(PingContainer::class);
     }
+    
+    public function errorLogs(): HasMany
+    {
+        return $this->hasMany(PingEventualError::class);
+    }
 }

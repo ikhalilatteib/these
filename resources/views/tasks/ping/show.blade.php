@@ -92,13 +92,13 @@
 								<tr>
 									<th>#</th>
 									<th>Konteyner ID</th>
-									<th>IP</th>
 									<th>Ping Sayısı</th>
 									<th>Başarılı</th>
 									<th>Kaybı</th>
 									<th>Min (ms)</th>
 									<th>Avg (ms)</th>
 									<th>Max (ms)</th>
+									<th>Süre (s)</th>
 									<th>Tarih</th>
 									<th class="text-center">Detay</th>
 								</tr>
@@ -108,14 +108,14 @@
 									<tr>
 										<td>{{ $loop->iteration }}</td>
 										<td>{{ Str::limit($container->container_id,20) }}</td>
-										<td>{{$container->ip}}</td>
 										<td>{{ $container->packets_transmitted }}</td>
 										<td>{{ $container->packets_received }}</td>
 										<td>{{ $container->packet_loss }}%</td>
 										<td>{{ $container->min }}</td>
 										<td>{{ $container->avg }}</td>
 										<td>{{ $container->max }}</td>
-										<td>{{ $container->created_at->format('d.m.Y H:i:s') }}</td>
+										<td>{{ $container->operation_time }}</td>
+										<td>{{ $container->created_at->format('d/m/Y H:i') }}</td>
 										<td class="text-center">
 											<button data-toggle="modal" data-target="#exampleModal_{{$loop->iteration}}"
 											        class="btn btn-primary-rgba btn-sm"><i class="ri-eye-line"></i>
@@ -151,6 +151,75 @@
 										</div>
 									</div>
 								@endforeach
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+				<div class="card m-t-30">
+					<div class="card-header bg-primary text-white">Hatalar</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+								<tr>
+									<th>#</th>
+									<th>Hata Kodu</th>
+									<th>Mesaji</th>
+									<th>Satir</th>
+									<th>Tarihi (ms)</th>
+									<th class="text-center">Detay</th>
+								</tr>
+								</thead>
+								<tbody>
+								@forelse($ping->errorLogs as $log)
+									<tr>
+										<td>{{ $loop->iteration }}</td>
+										
+										<td>{{ $log->code }}</td>
+										<td>{{ Str::limit($log->message,80) }}</td>
+										<td>{{ $log->line }}</td>
+										<td>{{ $container->created_at->format('d/m/Y H:i') }}</td>
+										<td class="text-center">
+											<button data-toggle="modal" data-target="#exampleLogModal_{{$loop->iteration}}"
+											        class="btn btn-primary-rgba btn-sm"><i class="ri-eye-line"></i>
+											</button>
+										</td>
+									</tr>
+									<div class="modal fade" id="exampleLogModal_{{$loop->iteration}}" tabindex="-1"
+									     aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-centered modal-lg">
+											<div class="modal-content bg-dark text-light">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">Konteyner
+														Çıktisi</h5>
+													<button type="button" class="close" data-dismiss="modal"
+													        aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<div class="terminal">
+														<div class="terminal-output">
+															<p>{!!  $log->message !!}</p>
+														</div>
+													</div>
+												
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger"
+													        data-dismiss="modal">Kapat
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								@empty
+									<tr>
+										<th colspan="6" class="text-center font-20"> Bu Görev Çalışma Esnasında herhangi bir hata oluşmamıştır</th>
+									</tr>
+								@endforelse
 								</tbody>
 							</table>
 						</div>

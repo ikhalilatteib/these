@@ -5,72 +5,101 @@ namespace App\Services;
 
 use App\Models\Ping;
 use GuzzleHttp\Client;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Sleep;
 
-class DockerService
+class PingService
 {
     private $client;
     private $logger;
     
-    public function __construct()
+    public function __construct(public Ping $ping)
     {
+        $this->logger = Log::channel('single');
+        
         try {
             $this->client = new Client([
                 'base_uri' => config('services.docker.endpoint'),
                 'timeout' => config('services.docker.timeout')
             ]);
-            $this->logger = logger();
-            $this->logger->info('process to create container');
         } catch (\Exception $e) {
+            $this->saveEventualErrors($e);
             $this->logger->error($e->getMessage());
         }
         
     }
     
-    public function createPingContainer(Ping $ping): void
+    public function createPingContainer(): void
     {
         // Validate the IP address
-        if (!filter_var($ping->ip, FILTER_VALIDATE_IP)) {
-            throw new \InvalidArgumentException('Invalid IP address: ' . $ping->ip);
+        if (!filter_var($this->ping->ip, FILTER_VALIDATE_IP)) {
+            throw new \InvalidArgumentException('Invalid IP address: ' . $this->ping->ip);
         }
-        $ping->containers()->delete();
+        $this->ping->containers()->delete();
         
         try {
             $this->logger->info('start creating container');
-            for ($i = 0; $i < $ping->container; $i++) {     // Create the container
+            for ($i = 0; $i < $this->ping->container; $i++) {     // Create the container
                 $response = $this->client->post('/containers/create', [
                     'json' => [
                         'Image' => 'alpine',
-                        'Cmd' => ['ping', '-c', $ping->max_ping, $ping->ip]
+                        'Cmd' => ['ping', '-c', $this->ping->max_ping, $this->ping->ip]
                     ]
                 ]);
                 
                 $container = json_decode((string)$response->getBody(), true);
                 
                 // Start the container
+                $this->logger->info('Started container with ID: ' . $container['Id']);
                 $this->startContainer($container['Id']);
                 
+                
                 Sleep::for(10)->seconds();
+                
+                $this->stopContainer($container['Id']);
+                
+                $operation_time = $this->containerRunTime($container['Id']);
                 
                 $logs = $this->getContainerLogs($container['Id']);
                 
                 $parsedLogs = $this->parseContainerLogs($logs);
                 
-                $this->storeContainerLogs($parsedLogs, $ping, $container['Id']);
+                $this->storeContainerLogs($parsedLogs, $container['Id'], $operation_time);
             }
-            $ping->update(['status' => 1]);
+            $this->ping->update(['status' => 1]);
             
             $this->logger->info('container is created');
         } catch (\Exception $e) {
-            $ping->update(['status' => 2]);
+            $this->saveEventualErrors($e);
             $this->logger->error($e->getMessage());
         }
     }
     
-    public function startContainer(string $containerId): void
+    public function startContainer(string $containerId)
     {
         try {
+            if (empty($containerId)) {
+                throw new \InvalidArgumentException('Invalid container ID');
+            }
+            
             $this->client->post('/containers/' . $containerId . '/start');
+            
+        } catch (\Exception $e) {
+            $this->saveEventualErrors($e, $this->ping);
+            $this->logger->error($e->getMessage());
+        }
+    }
+    
+    public function stopContainer(string $containerId)
+    {
+        try {
+            if (empty($containerId)) {
+                throw new \InvalidArgumentException('Invalid container ID');
+            }
+            
+            $this->client->post('/containers/' . $containerId . '/stop');
+            
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
@@ -117,25 +146,55 @@ class DockerService
         
         preg_match('/(\d+\.\d+)\/(\d+\.\d+)\/(\d+\.\d+)/', $log, $matches);
         if (isset($matches)) {
-            $data['min'] = $matches[1] ?? '';
-            $data['avg'] = $matches[2] ?? '';
-            $data['max'] = $matches[3] ?? '';
+            $data['min'] = $matches[1] ?? '0';
+            $data['avg'] = $matches[2] ?? '0';
+            $data['max'] = $matches[3] ?? '0';
         }
         
         return $data;
     }
     
-    protected function storeContainerLogs(array $logs, Ping $ping, string $containerId): void
+    protected function storeContainerLogs(array $logs, string $containerId, $operation_time): void
     {
         try {
             
+            $logs['operation_time'] = $operation_time;
             $logs['container_id'] = $containerId;
-            $ping->containers()->create($logs);
+            $this->ping->containers()->create($logs);
             
         } catch (\Exception $e) {
+            $this->saveEventualErrors($e, $this->ping);
             $this->logger->error($e->getMessage());
         }
         
+    }
+    
+    protected function saveEventualErrors($e): void
+    {
+        $this->ping->update(['status' => 2]);
+        
+        $this->ping->errorLogs()->create([
+            'message' => $e->getMessage(),
+            'code' => $e->getCode(),
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+            'trace' => $e->getTraceAsString(),
+        ]);
+    }
+    
+    protected function containerRunTime($containerID)
+    {
+        try {
+            $response = $this->client->get('/containers/' . $containerID . '/json');
+            
+            $container = json_decode((string)$response->getBody(), true);
+            
+            $start = Carbon::create($container['State']['StartedAt']);
+            return Carbon::create($container['State']['FinishedAt'])->diffInSeconds($start);
+        } catch (\Exception $e) {
+            $this->saveEventualErrors($e, $this->ping);
+            $this->logger->error($e->getMessage());
+        }
     }
     
 }

@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('avg')->nullable();
             $table->string('max')->nullable();
             $table->longText('log')->nullable();
+            $table->integer('operation_time')->default(0);
             $table->timestamps();
         });
     }

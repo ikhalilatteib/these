@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\TaskPingCreated;
-use App\Services\DockerService;
+use App\Services\PingService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class TaskPingLog implements ShouldQueue
@@ -24,6 +24,6 @@ class TaskPingLog implements ShouldQueue
      */
     public function handle(TaskPingCreated $event): void
     {
-        (new DockerService())->createPingContainer($event->ping);
+        (new PingService($event->ping))->createPingContainer();
     }
 }

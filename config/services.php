@@ -33,7 +33,7 @@ return [
     
     'docker'=>[
         'endpoint' => env('DOCKER_API_ENDPOINT'),
-        'timeout' => env('DOCKER_API_TIMEOUT','5.0')
+        'timeout' => env('DOCKER_API_TIMEOUT','60.0')
     ]
 
 ];

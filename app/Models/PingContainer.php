@@ -19,7 +19,8 @@ class PingContainer extends Model
         'min',
         'avg',
         'max',
-        'log'
+        'log',
+        'operation_time'
     ];
     
     public function ping(): BelongsTo
