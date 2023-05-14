@@ -8,18 +8,27 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use function Symfony\Component\String\b;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = User::query()->paginate(10);
+        auth()->user()?->userActivityLogs()->create([
+            'action' => "Kullanıcı Kullanıcılar listesi görüntelendi.",
+            'ip' => request()?->ip()
+        ]);
+        $users = User::query()->latest()->paginate(10);
         return view('users.index', compact('users'));
     }
     
     public function store(UserRequest $request)
     {
+        
+        auth()->user()?->userActivityLogs()->create([
+            'action' => "Kullanıcı adı olan : $request->name yeni bir kullanıcı oluşturdu.",
+            'ip' => request()?->ip()
+        ]);
+        
         $data = $request->validated();
         $data['password'] = Hash::make($request->password);
         
@@ -35,7 +44,14 @@ class UserController extends Controller
     
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        auth()->user()?->userActivityLogs()->create([
+            'action' => "Kullanıcı adı olan : $user->name profilini görüntelendi.",
+            'ip' => request()?->ip()
+        ]);
+        
+        $logs = $user->userActivityLogs()->latest()->paginate(10);
+        
+        return view('users.show', compact('user', 'logs'));
     }
     
     public function edit(User $user)
@@ -60,18 +76,25 @@ class UserController extends Controller
     
     public function destroy(User $user)
     {
+        auth()->user()?->userActivityLogs()->create([
+            'action' => "Kullanıcı adı olan : $user->name hesabini sildi.",
+            'ip' => request()?->ip()
+        ]);
         $user->delete();
         return to_route('users.index')->with('danger', 'User updated successfully.');
     }
     
     public function account()
     {
-        $user = [
-            'email' => 'admin@app.com',
-            'password' => 12345678,
-        ];
-        Auth::attempt($user);
-        return view('users.account');
+        $user = auth()->user();
+        $user?->userActivityLogs()->create([
+            'action' => "Kullanıcı kendi profilini görüntelendi.",
+            'ip' => request()?->ip()
+        ]);
+        
+        $logs = $user?->userActivityLogs()->latest()->paginate(10);
+        
+        return view('users.account',compact('logs'));
     }
     
     public function updateAccount(UserRequest $request): RedirectResponse

@@ -76,6 +76,44 @@
 					</div>
 				</div>
 			</div>
+			
+				<div class="col-md-12">
+					<div class="card m-t-30">
+						<div class="card-header bg-primary text-white"> Loglarım</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+									<tr>
+										<th>#</th>
+										<th>IP</th>
+										<th>İslem</th>
+										<th>Tarih</th>
+										<th>Saat</th>
+									</tr>
+									</thead>
+									<tbody>
+									@foreach($logs as $log)
+										<tr>
+											<td>{{ $loop->iteration }}</td>
+											<td>{{ $log->ip }}</td>
+											<td>{{ $log->action }}</td>
+											<td>
+												{{ $log->created_at->format("d/m/Y") }}
+											</td>
+											<td>
+												{{ $log->created_at->format("H:i:s") }}
+											</td>
+										</tr>
+									@endforeach
+									</tbody>
+								</table>
+							</div>
+							
+							{{ $logs->links() }}
+						</div>
+					</div>
+				</div>
 		</div>
 	</div>
 @endsection

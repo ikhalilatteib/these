@@ -12,7 +12,7 @@ class PingRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'container' => 'required|numeric|min:1|lte:10',
-            'ip' => 'required|string|regex:/^(?:\d{1,3}\.){3}\d{1,3}(?:,\s*(?:\d{1,3}\.){3}\d{1,3})*$/',
+            'ip' => 'required|string|regex:/^(?:\d{1,3}\.){3}\d{1,3}(?:,\s*(?:\d{1,3}\.){3}\d{1,3})*$/|max:15',
             'max_ping'=>'required|min:1|lte:10'
         ];
     }

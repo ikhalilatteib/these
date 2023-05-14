@@ -6,12 +6,11 @@
 				<div class="media">
 					<span class="breadcrumb-icon"><i class="ri-dashboard-line"></i></span>
 					<div class="media-body">
-						<h4 class="page-title">Kullanıcı Detayı</h4>
+						<h4 class="page-title">Kullanıcı Logları</h4>
 						<div class="breadcrumb-list">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="{{ route('users.index') }}">MC</a></li>
-								<li class="breadcrumb-item"><a href="{{ route('users.index') }}">Kullanıcılar</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Kullanıcı Detayı</li>
+								<li class="breadcrumb-item"><a href="{{ route('dashboard') }}">MC</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Kullanıcı Logları</li>
 							</ol>
 						</div>
 					</div>
@@ -29,27 +28,14 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-				
-					<div class="card-body">
-						<p><strong>Ad ve Soyad:</strong> {{ $user->name }}</p>
-						<p><strong>Email:</strong> {{ $user->email }}</p>
-						<a href="{{ route('users.index') }}" class="btn btn-primary">Geri dön</a>
-						<form action="{{ route('users.destroy', $user) }}" method="POST" class="d-inline">
-							@csrf
-							@method('DELETE')
-							<button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Sil</button>
-						</form>
-					</div>
-				</div>
-				
-				<div class="card m-t-30">
-					<div class="card-header bg-primary text-white"> Loglar</div>
+					<div class="card-header bg-primary text-white">Kullanıcı Logları</div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table">
 								<thead>
 								<tr>
 									<th>#</th>
+									<th>Kullanıcı</th>
 									<th>IP</th>
 									<th>İslem</th>
 									<th>Tarih</th>
@@ -60,6 +46,7 @@
 								@foreach($logs as $log)
 									<tr>
 										<td>{{ $loop->iteration }}</td>
+										<td>{{ $log->user->name }}</td>
 										<td>{{ $log->ip }}</td>
 										<td>{{ $log->action }}</td>
 										<td>

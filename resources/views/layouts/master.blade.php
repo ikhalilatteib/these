@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li class="vertical-header p-0"></li>
-					<li  @class(['active'=>request()->routeIs('tasks.*')])>
+					<li @class(['active'=>request()->routeIs('tasks.*')])>
 						<a href="javaScript:void(0);">
 							<i class="ri-settings-2-line"></i><span>Görevler</span><i class="ri-arrow-right-s-line"></i>
 						</a>
@@ -70,8 +70,8 @@
 						</a>
 					</li>
 					<li>
-						<a href="javaScript:void(0);">
-							<i class="ri-file-lock-line"></i><span>Sistem Kayıtları</span>
+						<a href="{{ route('user.activity.log') }}" @class(['active' => request()->routeIs('user.activity.log')])>
+							<i class="ri-file-lock-line"></i><span>Kullanıcı Logları</span>
 						</a>
 					
 					</li>

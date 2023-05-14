@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PingController;
+use App\Http\Controllers\UserActivityLogController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,15 +37,13 @@ Route::group(['middleware' => 'auth'], function () {
             ->except(['destroy', 'edit', 'update']);
     });
     
-    Route::controller(PingController::class)->group(function (){
-      Route::get('/container/{ping}/data','getContainerData')->name('container.data');
-    });
-    
     Route::controller(UserController::class)->group(function () {
         Route::get('/my-account', 'account')->name('account');
         Route::put('/update/info', 'updateAccount')->name('update.info');
         Route::put('/update/password', 'updatePassword')->name('update.password');
     });
+    
+    Route::get('/activity-logs', UserActivityLogController::class)->name('user.activity.log');
     
     
 });

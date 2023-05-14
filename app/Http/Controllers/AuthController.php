@@ -25,13 +25,20 @@ class AuthController extends Controller
         if (!Auth::attempt($data, $remember)) {
             return back()->with('error','Böyle bir kayıtlı kullanıcı bulanamadı!');
         }
-        
+        auth()->user()?->userActivityLogs()->create([
+            'action' => "Kullanıcı sisteme giriş yaptı.",
+            'ip' => request()?->ip()
+        ]);
         return to_route('dashboard');
         
     }
     
     public function logout()
     {
+        auth()->user()?->userActivityLogs()->create([
+            'action' => "Kullanıcı sistemden çıkış yaptı",
+            'ip' => request()?->ip()
+        ]);
         Auth::logout();
         
         return to_route('login');

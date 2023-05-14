@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class TaskPingLog implements ShouldQueue
 {
     
-    public $timeout = 180;
+    public $timeout = 300;
     
     /**
      * Create the event listener.

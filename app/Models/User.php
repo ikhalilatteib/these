@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ping::class);
     }
+    
+    public function userActivityLogs(): HasMany
+    {
+        return $this->hasMany(UserActivityLog::class);
+    }
 }
