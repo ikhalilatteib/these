@@ -61,7 +61,7 @@
 							<li @class(['active'=>request()->routeIs('tasks.ping.*')]) ><a
 										href="{{ route('tasks.ping.index') }}" @class(['active'=>request()->routeIs('tasks.ping.*')])>Ping</a>
 							</li>
-							<li @class(['active'=>request()->routeIs(config('theharvester-service.theharvester_index'))]) ><a href="{{ route(config('theharvester-service.theharvester_index')) }}">Theharvester</a></li>
+							<li @class(['active'=>config('theharvester-service.theharvester_index',false)]) ><a href="{{ config('theharvester-service.theharvester_index','#')}}">Theharvester</a></li>
 						</ul>
 					</li>
 					<li>
