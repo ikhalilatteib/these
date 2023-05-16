@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Ikay\TheharvesterService\Models\Theharvester;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -51,5 +52,10 @@ class User extends Authenticatable
     public function userActivityLogs(): HasMany
     {
         return $this->hasMany(UserActivityLog::class);
+    }
+    
+    public function theharvesters(): HasMany
+    {
+        return $this->hasMany(Theharvester::class);
     }
 }

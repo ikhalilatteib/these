@@ -61,7 +61,7 @@
 							<li @class(['active'=>request()->routeIs('tasks.ping.*')]) ><a
 										href="{{ route('tasks.ping.index') }}" @class(['active'=>request()->routeIs('tasks.ping.*')])>Ping</a>
 							</li>
-							<li><a href="basic-ui-kits-buttons.html">Theharvester</a></li>
+							<li @class(['active'=>request()->routeIs(config('theharvester-service.theharvester_index'))]) ><a href="{{ route(config('theharvester-service.theharvester_index')) }}">Theharvester</a></li>
 						</ul>
 					</li>
 					<li>
@@ -193,9 +193,9 @@
 									<div class="dropdown">
 										<a class="dropdown-toggle" href="#" role="button" id="profilelink"
 										   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-													src="https://ui-avatars.com/api/?name={{urlencode(auth()->user()->name)}}&background=random&size=100"
+													src="https://ui-avatars.com/api/?name={{urlencode(Auth::user()?->name)}}&background=random&size=100"
 													class="rounded-circle" alt="profile"><span
-													class="live-icon">{{auth()->user()->name}}</span></a>
+													class="live-icon">{{auth()->user()?->name}}</span></a>
 										<div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
 											<a class="dropdown-item" href="{{ route('account') }}"><i
 														class="ri-user-6-line"></i>Profilim</a>

@@ -1,8 +1,4 @@
 @extends('layouts.master')
-@section('style')
-	<link href="{{asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css')}}" rel="stylesheet" type="text/css">
-@endsection
 @section('breadcrumb')
 	<div class="breadcrumbbar">
 		<div class="row align-items-center">
@@ -94,7 +90,4 @@
 		</div>
 	</div>
 @endsection
-@section('script')
-	<script src="{{asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
-	<script src="{{asset('assets/plugins/bootstrap-tagsinput/typeahead.bundle.js')}}"></script>
-@endsection
+

@@ -180,7 +180,7 @@
 										<td>{{ $log->code }}</td>
 										<td>{{ Str::limit($log->message,80) }}</td>
 										<td>{{ $log->line }}</td>
-										<td>{{ $container->created_at->format('d/m/Y H:i') }}</td>
+										<td>{{ $log->created_at->format('d/m/Y H:i') }}</td>
 										<td class="text-center">
 											<button data-toggle="modal" data-target="#exampleLogModal_{{$loop->iteration}}"
 											        class="btn btn-primary-rgba btn-sm"><i class="ri-eye-line"></i>
