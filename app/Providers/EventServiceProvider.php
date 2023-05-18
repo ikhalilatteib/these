@@ -14,6 +14,10 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
+        \Ikay\TheharvesterService\Events\TaskTheharvesterCreated::class => [
+            \Ikay\TheharvesterService\Listeners\TaskTheharvesterService::class,
+        ],
+      
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],

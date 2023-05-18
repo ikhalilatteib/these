@@ -17,7 +17,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#1ba4fd'],
+        colors: ['#9100e4'],
         series: [{
             name: "Desktops",
             data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -71,7 +71,7 @@ $(document).ready(function() {
         stroke: {
             curve: 'smooth',
         },
-        colors: ['#1ba4fd', '#3dcd8b'],
+        colors: ['#9100e4', '#9100e4'],
         series: [{
             name: 'Inward',
             data: [31, 40, 28, 51, 42, 109, 100]
@@ -131,7 +131,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#1ba4fd', '#3dcd8b'],
+        colors: ['#9100e4', '#9100e4'],
         series: [
             {
                 name: "New - 2013",
@@ -237,8 +237,8 @@ $(document).ready(function() {
             type: 'gradient',
             gradient: {
                 shade: 'dark',
-                gradientFromColors: [ '#1ba4fd'],
-                gradientToColors: [ '#3dcd8b'],
+                gradientFromColors: [ '#9100e4'],
+                gradientToColors: [ '#9100e4'],
                 shadeIntensity: 1,
                 type: 'horizontal',
                 opacityFrom: 1,
@@ -282,7 +282,7 @@ $(document).ready(function() {
             width: 2,
             colors: ['transparent']
         },
-        colors: ['#1ba4fd', '#3dcd8b'],
+        colors: ['#9100e4', '#9100e4'],
         series: [{
             name: 'Net Profit',
             data: [44, 55, 57, 56, 61, 58]
@@ -339,7 +339,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#1ba4fd', '#3dcd8b'],
+        colors: ['#9100e4', '#9100e4'],
         series: [{
           data: [44, 55, 41, 64, 22, 43, 21]
         }, {
@@ -405,7 +405,7 @@ $(document).ready(function() {
                 columnWidth: '20%',
             },
         },
-        colors: ['#1ba4fd','#3dcd8b'],
+        colors: ['#9100e4','#9100e4'],
         series: [{
             name: 'Earning',
             data: [5, 7, 8, 6, 7, 5, 6, 6, 7, 4]
@@ -455,11 +455,11 @@ $(document).ready(function() {
         x: 'Bananas',
         seriesIndex: 0,
         label: {
-          borderColor: '#1ba4fd',
+          borderColor: '#9100e4',
           offsetY: 0,
           style: {
             color: '#fff',
-            background: '#1ba4fd',
+            background: '#9100e4',
           },
           text: 'Bananas are good',
         }
@@ -478,7 +478,7 @@ $(document).ready(function() {
         endingShape: 'rounded'  
       }
     },
-    colors: ['#1ba4fd'],
+    colors: ['#9100e4'],
     dataLabels: {
       enabled: false
     },
@@ -563,7 +563,7 @@ $(document).ready(function() {
         horizontal: false
       }
     },
-    colors: ['#1ba4fd','#3dcd8b'],
+    colors: ['#9100e4','#9100e4'],
     dataLabels: {
       enabled: true
     }
@@ -604,7 +604,7 @@ $(document).ready(function() {
         columnWidth: '50%'
       }
     },
-    colors: ['#1ba4fd','#3dcd8b','#ffb129'],
+    colors: ['#9100e4','#9100e4','#ffb129'],
     fill: {
       opacity: [0.85, 0.25, 1],
       gradient: {
@@ -904,8 +904,8 @@ $(document).ready(function() {
     plotOptions: {
       candlestick: {
         colors: {
-          upward: '#1ba4fd',
-          downward: '#3dcd8b'
+          upward: '#9100e4',
+          downward: '#9100e4'
         }
       }
     },
@@ -942,7 +942,7 @@ $(document).ready(function() {
         dataLabels: {
             enabled: false
         },
-        colors: ['#1ba4fd', '#3dcd8b','#b8d1e1'], 
+        colors: ['#9100e4', '#9100e4','#b8d1e1'], 
         series: [60, 45, 25],
         labels: ['Electronics', 'Fashion', 'Food'],
         legend: {
@@ -991,7 +991,7 @@ $(document).ready(function() {
                 }
             }
         },
-        colors: ['#1ba4fd', '#3dcd8b','#ffb129', '#b8d1e1'],
+        colors: ['#9100e4', '#9100e4','#ffb129', '#b8d1e1'],
         series: [44, 55, 67, 83],
         labels: ['News', 'Media', 'Ads', 'Others'], 
     }
@@ -1045,7 +1045,7 @@ $(document).ready(function() {
         stroke: {
             dashArray: 4
         },
-        colors:["#1ba4fd"],
+        colors:["#9100e4"],
         series: [65],
         labels: ['Completed'],        
     }
@@ -1083,7 +1083,7 @@ $(document).ready(function() {
         }
       }
     },
-    colors: ['#1ba4fd', '#3dcd8b', '#ffb129', '#b8d1e1'],
+    colors: ['#9100e4', '#9100e4', '#ffb129', '#b8d1e1'],
     labels: ['Website', 'Mobile', 'Offline', 'Direct'],
     legend: {
       show: true,

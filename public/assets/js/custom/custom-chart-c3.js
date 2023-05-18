@@ -8,7 +8,7 @@ $(document).ready(function() {
     /* -- C3 - Scatter Plot Chart -- */
     var scatterPlotChart = c3.generate({
         bindto: '#c3-scatter-plot',
-        color: { pattern: ["#ebebf6", "#3dcd8b", "#1ba4fd"] },
+        color: { pattern: ["#ebebf6", "#9100e4", "#9100e4"] },
         data: {
             xs: {
                 setosa: 'setosa_x',
@@ -60,7 +60,7 @@ $(document).ready(function() {
     /* -- C3 - Step Chart -- */
     var stepcChart = c3.generate({
         bindto: '#c3-step',
-        color: { pattern: ["#1ba4fd", "#3dcd8b"] },
+        color: { pattern: ["#9100e4", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 300, 350, 300, 0, 0, 100],
@@ -75,7 +75,7 @@ $(document).ready(function() {
     /* -- C3 - Simple Line Chart -- */
     var simpleLineChart = c3.generate({
         bindto: '#c3-simple-line',
-        color: { pattern: ["#1ba4fd", "#3dcd8b"] },
+        color: { pattern: ["#9100e4", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 30, 200, 100, 400, 150, 250],
@@ -86,7 +86,7 @@ $(document).ready(function() {
     /* -- C3 - Spline Chart -- */
     var splineChart = c3.generate({
         bindto: '#c3-spline',
-        color: { pattern: ["#1ba4fd", "#3dcd8b"] },
+        color: { pattern: ["#9100e4", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 30, 200, 100, 400, 150, 250],
@@ -98,7 +98,7 @@ $(document).ready(function() {
     /* -- C3 - Area Chart -- */
     var areaChart = c3.generate({
         bindto: '#c3-area',
-        color: { pattern: ["#1ba4fd", "#3dcd8b"] },
+        color: { pattern: ["#9100e4", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 100, 75, 50, 75, 50, 75, 100],
@@ -114,7 +114,7 @@ $(document).ready(function() {
     /* -- C3 - Bar Chart -- */
     var barChart = c3.generate({
         bindto: '#c3-bar',
-        color: { pattern: ["#1ba4fd", "#3dcd8b"] },
+        color: { pattern: ["#9100e4", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 30, 200, 100, 400, 150, 250],
@@ -131,7 +131,7 @@ $(document).ready(function() {
     /* -- C3 - Stacked Bar Chart -- */
     var stackedBarChart = c3.generate({
         bindto: '#c3-stacked-bar',
-        color: { pattern: ["#ebebf6", "#1ba4fd", "#3dcd8b"] },
+        color: { pattern: ["#ebebf6", "#9100e4", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 30, 200, 200, 400, 150, 250],
@@ -152,7 +152,7 @@ $(document).ready(function() {
     /* -- C3 - Combination Chart -- */
     var combinationChart = c3.generate({
         bindto: '#c3-combination',
-        color: { pattern: ["#1ba4fd", "#ebebf6", "#e75c62", "#67d1e1", "#3dcd8b", "#ffb129"] },
+        color: { pattern: ["#9100e4", "#ebebf6", "#e75c62", "#67d1e1", "#9100e4", "#ffb129"] },
         data: {
             columns: [
                 ['SeriesA', 30, 20, 50, 40, 60, 50],
@@ -189,7 +189,7 @@ $(document).ready(function() {
             width: 40,
         },
         color: {
-            pattern: ['#3dcd8b', '#e75c62', '#ffb129', '#1ba4fd'],
+            pattern: ['#9100e4', '#e75c62', '#ffb129', '#9100e4'],
             threshold: {
                 values: [30, 60, 90, 100]
             }
@@ -226,7 +226,7 @@ $(document).ready(function() {
     /* -- C3 - Pie Chart -- */
     var pieChart = c3.generate({
         bindto: '#c3-pie',
-        color: { pattern: ["#1ba4fd", "#ebebf6", "#3dcd8b"] },
+        color: { pattern: ["#9100e4", "#ebebf6", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 40],
@@ -242,7 +242,7 @@ $(document).ready(function() {
     /* -- C3 - Donut Chart -- */
     var donutChart = c3.generate({
         bindto: '#c3-donut',
-        color: { pattern: ["#1ba4fd", "#ebebf6", "#3dcd8b"] },
+        color: { pattern: ["#9100e4", "#ebebf6", "#9100e4"] },
         data: {
             columns: [
                 ['SeriesA', 40],

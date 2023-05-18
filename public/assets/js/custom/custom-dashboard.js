@@ -18,7 +18,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#1ba4fd'],
+        colors: ['#9100e4'],
         series: [{
             data: [50, 60, 40, 60, 67, 61, 62, 82, 103, 84, 54, 65]
         }],
@@ -74,7 +74,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#3dcd8b'],
+        colors: ['#9100e4'],
         series: [{
             data: [50, 60, 40, 60, 67, 61, 62, 82, 103, 84, 54, 65]
         }],
@@ -202,7 +202,7 @@ $(document).ready(function() {
         }
       }
     },
-    colors: ['#1ba4fd', '#3dcd8b', '#ffb129', '#b8d1e1'],
+    colors: ['#9100e4', '#9100e4', '#ffb129', '#b8d1e1'],
     labels: ['Proposed', 'Active', 'Process', 'On Hold'],
     legend: {
       show: true,
@@ -249,7 +249,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#1ba4fd', '#3dcd8b'],
+        colors: ['#9100e4', '#9100e4'],
         series: [{
           data: [44, 55, 41, 64, 22, 43, 21]
         }, {

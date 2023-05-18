@@ -11,8 +11,8 @@ $(document).ready(function() {
         backgroundColor: 'transparent',
         markerStyle: {
           initial: {
-            fill: '#1ba4fd',
-            stroke: '#1ba4fd',
+            fill: '#9100e4',
+            stroke: '#9100e4',
             "fill-opacity": 1,
             "stroke-width": 15,
             "stroke-opacity": 0.2
@@ -41,7 +41,7 @@ $(document).ready(function() {
     $('#usa').vectorMap({map: 'us_aea_en',backgroundColor: 'transparent',
         regionStyle: {
             initial: {
-                fill: '#1ba4fd'
+                fill: '#9100e4'
             }
     }});
     /* -- jVector Map - India Map -- */
@@ -55,7 +55,7 @@ $(document).ready(function() {
     $('#australia').vectorMap({map : 'au_mill',backgroundColor : 'transparent',
         regionStyle : {
             initial : {
-                fill : '#3dcd8b'
+                fill : '#9100e4'
             }
     }});
     /* -- jVector Map - Argentina Map -- */

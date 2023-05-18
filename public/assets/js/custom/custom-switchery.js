@@ -7,11 +7,11 @@
   "use strict";
       /* -- Switchery - Colored Switches -- */
       var primary = document.querySelector('.js-switch-primary');
-      var switchery = new Switchery(primary, { color: '#1ba4fd' });
+      var switchery = new Switchery(primary, { color: '#9100e4' });
       var secondary = document.querySelector('.js-switch-secondary');
       var switchery = new Switchery(secondary, { color: '#b8d1e1' });
       var success = document.querySelector('.js-switch-success');
-      var switchery = new Switchery(success, { color: '#3dcd8b' });
+      var switchery = new Switchery(success, { color: '#9100e4' });
       var danger = document.querySelector('.js-switch-danger');
       var switchery = new Switchery(danger, { color: '#e75c62' });
       var warning = document.querySelector('.js-switch-warning');
@@ -24,11 +24,11 @@
       var switchery = new Switchery(dark, { color: '#181a39' });
       /* -- Switchery - Small Switches -- */
       var primary_small = document.querySelector('.js-switch-primary-small');
-      var switchery = new Switchery(primary_small, { color: '#1ba4fd', size: 'small' });
+      var switchery = new Switchery(primary_small, { color: '#9100e4', size: 'small' });
       var secondary_small = document.querySelector('.js-switch-secondary-small');
       var switchery = new Switchery(secondary_small, { color: '#b8d1e1', size: 'small' });
       var success_small = document.querySelector('.js-switch-success-small');
-      var switchery = new Switchery(success_small, { color: '#3dcd8b', size: 'small' });
+      var switchery = new Switchery(success_small, { color: '#9100e4', size: 'small' });
       var danger_small = document.querySelector('.js-switch-danger-small');
       var switchery = new Switchery(danger_small, { color: '#e75c62', size: 'small' });
       var warning_small = document.querySelector('.js-switch-warning-small');
@@ -41,11 +41,11 @@
       var switchery = new Switchery(dark_small, { color: '#181a39', size: 'small' });
       /* -- Switchery - Large Switches -- */
       var primary_large = document.querySelector('.js-switch-primary-large');
-      var switchery = new Switchery(primary_large, { color: '#1ba4fd', size: 'large' });
+      var switchery = new Switchery(primary_large, { color: '#9100e4', size: 'large' });
       var secondary_large = document.querySelector('.js-switch-secondary-large');
       var switchery = new Switchery(secondary_large, { color: '#b8d1e1', size: 'large' });
       var success_large = document.querySelector('.js-switch-success-large');
-      var switchery = new Switchery(success_large, { color: '#3dcd8b', size: 'large' });
+      var switchery = new Switchery(success_large, { color: '#9100e4', size: 'large' });
       var danger_large = document.querySelector('.js-switch-danger-large');
       var switchery = new Switchery(danger_large, { color: '#e75c62', size: 'large' });
       var warning_large = document.querySelector('.js-switch-warning-large');
@@ -58,11 +58,11 @@
       var switchery = new Switchery(dark_large, { color: '#181a39', size: 'large' });
       /* -- Switchery - Multicolor Switches -- */
       var primary_multicolor = document.querySelector('.js-switch-primary-multicolor');
-      var switchery = new Switchery(primary_multicolor, { color: '#1ba4fd', jackColor: '#dbe5fd' });
+      var switchery = new Switchery(primary_multicolor, { color: '#9100e4', jackColor: '#dbe5fd' });
       var secondary_multicolor = document.querySelector('.js-switch-secondary-multicolor');
       var switchery = new Switchery(secondary_multicolor, { color: '#b8d1e1', jackColor: '#e9eaed' });
       var success_multicolor = document.querySelector('.js-switch-success-multicolor');
-      var switchery = new Switchery(success_multicolor, { color: '#3dcd8b', jackColor: '#a5ecc4' });
+      var switchery = new Switchery(success_multicolor, { color: '#9100e4', jackColor: '#a5ecc4' });
       var danger_multicolor = document.querySelector('.js-switch-danger-multicolor');
       var switchery = new Switchery(danger_multicolor, { color: '#e75c62', jackColor: '#ffe4e6' });
       var warning_multicolor = document.querySelector('.js-switch-warning-multicolor');
@@ -75,13 +75,13 @@
       var switchery = new Switchery(dark_multicolor, { color: '#181a39', jackColor: '#7e7e7e' });
       /* -- Switchery - On-Off Multicolor Switches -- */
       var primary_multicolor_on_off = document.querySelector('.js-switch-primary-multicolor-on-off');
-      var switchery = new Switchery(primary_multicolor_on_off, { color: '#1ba4fd', secondaryColor: '#949ca9', jackColor: '#dbe5fd', jackSecondaryColor: '#e9eaed' });
+      var switchery = new Switchery(primary_multicolor_on_off, { color: '#9100e4', secondaryColor: '#949ca9', jackColor: '#dbe5fd', jackSecondaryColor: '#e9eaed' });
       var secondary_multicolor_on_off = document.querySelector('.js-switch-secondary-multicolor-on-off');
-      var switchery = new Switchery(secondary_multicolor_on_off, { color: '#b8d1e1', secondaryColor: '#1ba4fd', jackColor: '#e9eaed', jackSecondaryColor: '#dbe5fd' });
+      var switchery = new Switchery(secondary_multicolor_on_off, { color: '#b8d1e1', secondaryColor: '#9100e4', jackColor: '#e9eaed', jackSecondaryColor: '#dbe5fd' });
       var success_multicolor_on_off = document.querySelector('.js-switch-success-multicolor-on-off');
-      var switchery = new Switchery(success_multicolor_on_off, { color: '#3dcd8b', secondaryColor: '#e75c62', jackColor: '#a5ecc4', jackSecondaryColor: '#ffe4e6' });
+      var switchery = new Switchery(success_multicolor_on_off, { color: '#9100e4', secondaryColor: '#e75c62', jackColor: '#a5ecc4', jackSecondaryColor: '#ffe4e6' });
       var danger_multicolor_on_off = document.querySelector('.js-switch-danger-multicolor-on-off');
-      var switchery = new Switchery(danger_multicolor_on_off, { color: '#e75c62', secondaryColor: '#3dcd8b', jackColor: '#ffe4e6', jackSecondaryColor: '#a5ecc4' });
+      var switchery = new Switchery(danger_multicolor_on_off, { color: '#e75c62', secondaryColor: '#9100e4', jackColor: '#ffe4e6', jackSecondaryColor: '#a5ecc4' });
       var warning_multicolor_on_off = document.querySelector('.js-switch-warning-multicolor-on-off');
       var switchery = new Switchery(warning_multicolor_on_off, { color: '#ffb129', secondaryColor: '#67d1e1', jackColor: '#fef7e6', jackSecondaryColor: '#c7ecee' });
       var info_multicolor_on_off = document.querySelector('.js-switch-info-multicolor-on-off');

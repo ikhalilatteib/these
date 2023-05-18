@@ -13,9 +13,15 @@ class UserRequest extends FormRequest
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ];
+        if ($this->route('user')) {
+            $userId = $this->route('user')->id;
+        } else {
+            $userId = auth()->id();
+        }
         
         if ($this->isMethod('PUT')) {
-            $rules['email'] = 'required|string|email|max:255|unique:users,email,' . $this->route('user')->id;
+            $rules['name'] = 'required|string|max:255';
+            $rules['email'] = 'required|string|email|max:255|unique:users,email,' . $userId;
             $rules['password'] = 'nullable|string|min:8|confirmed';
         }
         

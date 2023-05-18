@@ -17,7 +17,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#1ba4fd'],
+        colors: ['#9100e4'],
         series: [{
             data: [50, 60, 40, 60, 67, 61, 62, 82, 103, 84, 54, 65]
         }],
@@ -73,7 +73,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        colors: ['#3dcd8b'],
+        colors: ['#9100e4'],
         series: [{
             data: [50, 60, 40, 60, 67, 61, 62, 82, 103, 84, 54, 65]
         }],

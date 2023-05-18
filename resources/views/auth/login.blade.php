@@ -33,7 +33,7 @@
 								<form action="{{ route('login.in') }}" method="POST">
 									@csrf
 									<div class="form-head">
-										<a href="index.html" class="logo"><img src="assets/images/logo.svg"
+										<a href="index.html" class="logo"><img src="{{asset('assets/images/general/logo.png')}}"
 										                                       class="img-fluid" alt="logo"></a>
 									</div>
 									<h4 class="text-primary my-4">Giriş Yap !</h4>

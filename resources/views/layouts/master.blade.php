@@ -38,9 +38,9 @@
 		<div class="sidebar">
 			<!-- Start Logobar -->
 			<div class="logobar">
-				<a href="{{ route('dashboard') }}" class="logo logo-large"><img src="assets/images/logo.svg"
+				<a href="{{ route('dashboard') }}" class="logo logo-large"><img src="{{asset('assets/images/general/logo.png')}}"
 				                                                                class="img-fluid" alt="logo"></a>
-				<a href="{{ route('dashboard') }}" class="logo logo-small"><img src="assets/images/small_logo.svg"
+				<a href="{{ route('dashboard') }}" class="logo logo-small"><img src="{{asset('assets/images/general/logo_small.png')}}"
 				                                                                class="img-fluid" alt="logo"></a>
 			</div>
 			<!-- End Logobar -->
@@ -61,7 +61,9 @@
 							<li @class(['active'=>request()->routeIs('tasks.ping.*')]) ><a
 										href="{{ route('tasks.ping.index') }}" @class(['active'=>request()->routeIs('tasks.ping.*')])>Ping</a>
 							</li>
-							<li @class(['active'=>config('theharvester-service.theharvester_index',false)]) ><a href="{{ config('theharvester-service.theharvester_index','#')}}">Theharvester</a></li>
+							<li @class(['active'=>  strpos(request()->path(), config('theharvester-service.theharvester_route')) === 0 || request()->path() == config('theharvester-service.theharvester_index')]) >
+								<a href="{{ config('theharvester-service.theharvester_index','#')}}">Theharvester</a>
+							</li>
 						</ul>
 					</li>
 					<li>

@@ -37,12 +37,18 @@
 							
 							<div class="form-group">
 								<label for="name">Ad ve Soyad</label>
-								<input type="text" name="name" id="name" class="form-control" value="{{ auth()->user()->name }}" required>
+								<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ auth()->user()->name }}" required>
+								@error('name')
+								<div class="invalid-feedback">{{ $message }}</div>
+								@enderror
 							</div>
 							
 							<div class="form-group">
 								<label for="email">Email</label>
-								<input type="email" name="email" id="email" class="form-control" value="{{ auth()->user()->email }}" required>
+								<input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ auth()->user()->email }}" required>
+								@error('email')
+								<div class="invalid-feedback">{{ $message }}</div>
+								@enderror
 							</div>
 							
 							<button type="submit" class="btn btn-primary">Güncelle</button>
