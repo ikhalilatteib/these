@@ -12,7 +12,6 @@
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
 	<!-- Start css -->
 	<!-- Switchery css -->
-	<link href="{{asset('assets/plugins/switchery/switchery.min.css')}}" rel="stylesheet">
 	<!-- Apex css -->
 	<link href="{{asset('assets/plugins/apexcharts/apexcharts.css')}}" rel="stylesheet">
 	<!-- Slick css -->

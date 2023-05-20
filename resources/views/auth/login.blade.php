@@ -38,6 +38,11 @@
 									</div>
 									<h4 class="text-primary my-4">Giriş Yap !</h4>
 									<div class="form-group">
+										@if(session('error'))
+											<div class="text-danger mb-2">
+												{{session('error')}}
+											</div>
+										@endif
 										<input type="text" name="email"
 										       class="form-control @error('email') is-invalid @enderror" id="username"
 										       placeholder="Email" required>

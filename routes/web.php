@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\UserActivityLogController;
 use App\Http\Controllers\UserController;
@@ -26,9 +27,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::group(['middleware' => 'auth'], function () {
     
-    Route::get('/', function () {
-        return view('layouts.master');
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class,'index'])->name('dashboard');
     
     Route::resource('users', UserController::class);
     
