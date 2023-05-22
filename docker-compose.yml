@@ -24,6 +24,7 @@ services:
             - sail
         depends_on:
             - mysql
+            - adminer
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -43,6 +44,12 @@ services:
         healthcheck:
             retries: 3
             timeout: 5s
+    adminer:
+        image: adminer:latest
+        ports:
+            - 8080:8080
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
