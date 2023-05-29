@@ -23,13 +23,17 @@ class AuthController extends Controller
         $remember = $data['remember'] ?? false;
         unset($data['remember']);
         if (!Auth::attempt($data, $remember)) {
-            return back()->with('error','Böyle bir kayıtlı kullanıcı bulanamadı!');
+          
+          return  response([
+                'message' => 'Böyle bir kayıtlı kullanıcı bulanamadı'
+            ], 422);
+           
         }
         auth()->user()?->userActivityLogs()->create([
             'action' => "Kullanıcı sisteme giriş yaptı.",
             'ip' => request()?->ip()
         ]);
-        return to_route('dashboard');
+        return response()->json(['success' => true]);
         
     }
     

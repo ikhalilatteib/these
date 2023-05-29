@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'login')->name('login');
+    Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('/login', 'loginIn')->name('login.in');
     Route::get('/logout', 'logout')->name('logout')->middleware('auth');
 });
